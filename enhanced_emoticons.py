@@ -6,22 +6,23 @@ import re
 
 class EnhancedEmoticons(BotPlugin):
 
-    def __init__(self):
-        self.saved_emoticons = {}
-
     @botcmd(split_args_with=' ')
     def emoticon(self, mess, args):
         """ Takes an emoticon command and saves it """
+        print len(args)
 
-        if (len(args) == 2):
-            self.saved_emoticons[str(args[0])] = str(args[1])
+        if len(args) == 2:
+            self.__setitem__(str(args[0]), str(args[1]))
+            return 'saved ((' + args[0] + ')) as ' + args[1] + '.'
 
-        return 'saved ((' + args[0] + ')) as ' + args[1] + '.'
+        return 'usage: `!emoticon word http://url`'
 
     def callback_message(self, conn, mess):
-        search = re.search('\(\(([a-zA-Z0-9\-\_\s]+)\)\)', str(mess.getBody()))
+        message = str(mess.getBody())
 
-        if search:
-            key = search.group(1)
-            if (key in self.saved_emoticons):
-                self.send(mess.getFrom(), str(self.saved_emoticons[key]), message_type=mess.getType())
+        emoticonCommand = re.search('\(\(([a-zA-Z0-9\-\_\s]+)\)\)', message)
+
+        if emoticonCommand:
+            key = emoticonCommand.group(1)
+            if (key in self.keys()):
+                self.send(mess.getFrom(), str(self.__getitem__(key)), message_type=mess.getType())

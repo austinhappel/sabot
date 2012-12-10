@@ -1,0 +1,6 @@
+[Core]
+Name = This Is That
+Module = this_is_that
+    
+[Documentation]
+Description = allows a user to set and display emoticons using ((word)). Usage: !emoticon word is http://yoururl.com
