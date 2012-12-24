@@ -99,8 +99,3 @@ class ThisIsThat(BotPlugin):
                 response = self.parse_question(mess)
                 if response != None:
                     self.send(mess.getFrom(), response, message_type=mess.getType())
-
-#        if emoticonCommand:
-#            key = emoticonCommand.group(1)
-#            if (key in self.keys()):
-#                self.send(mess.getFrom(), str(self.__getitem__(key)), message_type=mess.getType())
