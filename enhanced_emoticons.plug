@@ -3,4 +3,4 @@ Name = enhanced_emoticons
 Module = enhanced_emoticons
     
 [Documentation]
-Description = allows a user to set and display emoticons using ((word)). Usage: !emoticon word is http://yoururl.com
+Description = allows a user to set and display emoticons using ((word)). Usage: !emoticon word http://yoururl.com

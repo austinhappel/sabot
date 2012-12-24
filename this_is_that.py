@@ -69,10 +69,11 @@ class ThisIsThat(BotPlugin):
 
         key = message_clean.strip().strip(strip_characters)
 
-        if key in self.keys():
-            return self.get_answer_flavor_text() + key + ' is ' + self.__getitem__(key)
-        elif must_respond is True:
-            return "I don't know what " + key + " is."
+        for value in self.keys():
+            if (key.lower() == value.lower()):
+                return self.get_answer_flavor_text() + key + ' is ' + self.__getitem__(value)
+
+        return "I don't know what " + key + " is."
 
     # TODO: what if name is stated twice in message
     def callback_message(self, conn, mess):
