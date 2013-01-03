@@ -1,0 +1,6 @@
+[Core]
+Name = spam_replace
+Module = spam_replace
+    
+[Documentation]
+Description = Sabot will spam 2 sed commands several times.

@@ -1,0 +1,6 @@
+[Core]
+Name = this_is_that
+Module = this_is_that
+    
+[Documentation]
+Description = Parrots back what you say. ex. (@sabot: foo is bar)

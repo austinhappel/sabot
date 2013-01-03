@@ -11,7 +11,7 @@ from random import randint
 
 class ThisIsThat(BotPlugin):
 
-    my_full_name = config.BOT_IDENTITY['username']
+    my_full_name = 'sabot@conf.hipchat.com'  # config.BOT_IDENTITY['username']
     regex_punctuation = r'!"#$%&\'()*+,-./:;<=>?@\[\\\]^_`{|}~\s'
     question_regex = r'\b(what|who) is\b'
 
@@ -41,7 +41,7 @@ class ThisIsThat(BotPlugin):
     # @botcmd(split_args_with=' ')
     def parse_command(self, mess):
         """ Looks for 'is' and saves XXXX is XXXX into database"""
-
+        print "parsing command"
         message = str(mess.getBody())
         sender = str(mess.getFrom())
         strip_characters = string.punctuation + ' '
@@ -81,6 +81,7 @@ class ThisIsThat(BotPlugin):
 
         # is my name mentioned?
         if re.search(self.short_name_regex, message) != None:
+            print "got something"
             # is this a command?
             if re.search(self.question_regex, message) is None and \
             re.search(r'\bis\b', message) != None:
