@@ -1,0 +1,6 @@
+[Core]
+Name = roll_dice
+Module = roll_dice
+    
+[Documentation]
+Description = command: !roll n - where n is the number of sides for your die
